@@ -1,0 +1,29 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "Eat-da-burger app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AceARK/BurgerSequelized.git"
+  },
+  "author": "Ace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AceARK/Burger/issues"
+  },
+  "homepage": "https://github.com/AceARK/Burger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.7",
+    "moment": "^2.18.1",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.4",
+    "sequelize-cli": "^2.7.0"
+  }
+}

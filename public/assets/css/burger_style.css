@@ -1,0 +1,179 @@
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+    font-family: 'Baloo Bhaina', cursive;
+    /*font-family: 'Patua One', cursive;*/
+    font-size: 22px;
+    color: #ffe500;
+    /*color: #ffd000;*/
+    text-shadow: 2px 2px 5px #662307;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: -20px;
+    /*color: #ffe45e;*/
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+video#burgerVid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    z-index: -10000000000000;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: black no-repeat;
+    background-size: cover;
+
+
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+
+.container {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+}
+
+#workingArea {
+    /*margin: 50px;*/
+    /*background-color: rgba(255, 255, 255, 0.7);*/
+    /*border-radius: 40px;*/
+}
+
+.burgerPic {
+    height: 70px;
+    width: 70px;
+    /*margin-top: 20px;*/
+}
+
+.wrapperPic {
+    height: 40px;
+    height: 40px;
+}
+
+input {
+    color: black;
+    border-radius: 8px;
+    border-style: inset;
+    border-color: #ffdc2d;
+    outline: none !important;
+    padding-top: 7px;
+    padding-left: 5px;
+    font-size: 18px;
+}
+
+.date {
+    font-size: 16px;
+    margin-left: 85px;
+    margin-top: -30px;
+    color: #ffdc2d;
+}
+
+.burgerName {
+    margin-left: 15px;
+}
+
+.devourButton {
+    margin-left: 120px;
+    font-size: 25px;
+}
+
+.btn {
+    outline: none !important;
+    font-family: 'Acme', sans-serif;
+    font-size: 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 4px #b7371d;
+}
+
+/* Default button style */
+.btn:hover {
+    box-shadow: 0 3px #c64b47;
+    top: 2px;
+}
+
+.btn:active, .btn-success:active {
+    box-shadow: none;
+    top: 4px;
+}
+
+.btn-success {
+    box-shadow: 0 4px #297529;
+}
+
+.btn-success:hover {
+    box-shadow: 0 3px #378437;
+    top: 2px;
+}
+
+.eaten {
+    margin-left: 63px;
+    margin-top: -15px;
+}
+
+#getBurger {
+    margin: 10px;
+}
+
+.devouredOrderedDate {
+    color: #ffe500;
+    font-size: 17px;
+}
+
+#errorMessage {
+    padding: 20px;
+    border: 2px solid #ffdc2d;
+    box-shadow: 2px 2px 5px #662307;
+    border-radius: 10px;
+    color: #ffe500;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#errorMessage a {
+    color: #00ffc3;
+}
+
+.options {
+    margin-left: 10px;
+}
+
+ /* Styling for screens upto mac 13inch */
+@media screen and (max-height: 700px) {
+   .btn {
+        font-size: 22px;
+        padding: 6px;
+   }
+   
+}

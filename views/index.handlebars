@@ -1,0 +1,64 @@
+<div class="container">
+	<div id="workingArea">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div id="heading">
+					<h1>Eat-Da-Burger restaurant</h1>
+					<h3>Welcome Eater! Enter your burger choice and have at it!</h3>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div id="orderArea">
+					<form class="burgerOrderForm" action="/" method="POST">
+						<input type="textbox" id="burgerOrder" name="name">
+						<button class="btn btn-success btn-lg" id="getBurger" type="submit">Get me my Burger</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="burgers">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-1">
+							<h3>Ready to Devour</h3>
+							{{#each burgers}}
+								{{#unless this.devoured}}
+									<div class="readyToDevour">
+										<p class="burgerLabel"><img class="burgerPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
+										<p class="date">Ordered: <span class="devouredOrderedDate">{{dateTimeFormat this.date}}</span></p>
+										
+										<form action="/devour?_method=PUT" method="POST">
+									        <input type="hidden" name="devour" value="1">
+									        <input type="hidden" name="id" value="{{this.id}}">
+									        <button type="submit" class="devourButton btn btn-danger">Devour it!</button>
+								        </form>
+								    </div>
+								{{/unless}}
+							{{/each}}
+						</div>
+						<div class="col-sm-5">
+							<h3>Devoured Burgers</h3>
+							{{#each burgers}}
+								{{#if this.devoured}}
+									<div class="alreadyDevoured">
+										<p class="burgerLabel"><img class="wrapperPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
+										<p class="date eaten">Devoured: <span class="devouredOrderedDate">{{dateTimeFormat this.date}}</span></p>
+									</div>
+								{{/if}}
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<video id="burgerVid" playsinline autoplay muted loop>
+        <source src="/assets/img/stockBurger.mp4" type="video/mp4">
+    </video>
+</div>
+<script type="text/javascript" src="assets/js/burger_script.js"></script>

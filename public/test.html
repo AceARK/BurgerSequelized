@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="/assets/css/reset.css" type="text/css">
+  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+	<title>Eat-Da-Burger</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div id="heading">
+					<h1>Eat-Da-Burger</h1>
+					<h3>Welcome to Eat-Da-Burger restaurant, where everybody gets to choose any burger they want, and watch it disappear here as they devour it!</h3>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div id="orderArea">
+					<form class="burgerOrderForm" action="/" method="POST">
+						<input type="textbox" id="burgerOrder" name="name">
+						 <div class="form-group">
+						    <label for="devoured">Weird question, but would you like it - </label><br>
+						    <input type="radio" name="devoured" value="1" checked>Devoured by the staff or someone too hungry to handle serving it to you? <br>
+						     <p>or</p>
+						    <input type="radio" name="devoured" value="0"> Undevoured, 'cos obviously you're planning on devouring it yourself, duh!
+						  </div>
+						<button class="btn btn-info btn-lg" type="submit">Make my Burger</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div id="burgers">
+					<div class="row">
+						<div class="col-xs-6">
+							<div id="justMade">
+								{{#each burgers}}
+									{{#unless this.devoured}}
+										<p class="name">Name: <span class="burgerName">{{this.burger_name}}</span></p>
+										<p class="name">Ordered At: {{this.date}}</p>
+										
+										<form action="/devour?_method=PUT" method="POST">
+									        <input type="hidden" name="devour" value="1">
+									        <input type="hidden" name="id" value="{{this.id}}">
+									        <button type="submit" class="btn btn-success">Devour it!</button>
+								        </form>
+									{{/unless}}
+								{{/each}}
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div id="devoured">
+								{{#each burgers}}
+									{{#if this.devoured}}
+										<p class="name">Name: <span class="burgerName">{{this.burger_name}}</span></p>
+										<p class="name">Ordered At: {{burgers.date}}</p>
+										<form action="/devour?_method=PUT" method="POST">
+									        <input type="hidden" name="devour" value="0">
+									        <input type="hidden" name="id" value="{{this.id}}">
+									        <button type="submit" class="btn btn-info">Order This Again?</button>
+								        </form>
+										
+									{{/if}}
+								{{/each}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
