@@ -21,21 +21,24 @@ router.get("/", function(req, res) {
       burgers: data,
       helpers: handlebarHelper
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
 router.post("/", function(req, res) {
-  if(req.body.name !== "" && !req.body.name.includes(";")) {
+  // if(req.body.name !== "" && !req.body.name.includes(";")) {
     db.Burger.create({
         burger_name: req.body.name
     }).then(function(result) {
       res.redirect('/');
+    }).error(function(err) {
+      console.log(err);
+      // res.render("400");
     })
-  }else {
-    res.render("400");
-  }
+  // }else {
+    
+  // }
   
 });
  
