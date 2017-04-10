@@ -16,7 +16,9 @@ var router = express.Router();
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  db.Burger.findAll({}).then(function(data) {
+  db.Burger.findAll({
+    order: "'burger_name' DESC"
+  }).then(function(data) {
     var hbsObject = {
       burgers: data,
       helpers: handlebarHelper
@@ -27,18 +29,27 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-  // if(req.body.name !== "" && !req.body.name.includes(";")) {
+  console.log(req.body.name);
+  console.log(typeof req.body.name);
+    if(req.body.name === "") {
+      req.body.name = null;
+    }
     db.Burger.create({
-        burger_name: req.body.name
+      burger_name: req.body.name
     }).then(function(result) {
       res.redirect('/');
-    }).error(function(err) {
-      console.log(err);
-      // res.render("400");
+    }).catch(function(err) {
+      var errorMessage = "";
+      console.log(err.message);
+      if(req.body.name !== null) {
+        if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
+            errorMessage = err.message + ". Possible SQL injection detected.";
+        }
+      }else {
+        errorMessage = err.message;
+      }
+      res.render("400", {error: errorMessage});
     })
-  // }else {
-    
-  // }
   
 });
  

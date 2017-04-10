@@ -30,7 +30,7 @@
 								{{#unless this.devoured}}
 									<div class="readyToDevour">
 										<p class="burgerLabel"><img class="burgerPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
-										<p class="date">Ordered: <span class="devouredOrderedDate">{{dateTimeFormat this.date}}</span></p>
+										<p class="date">Ordered: <span class="devouredOrderedDate">{{dateTimeFormat this.createdAt}}</span></p>
 										
 										<form action="/devour?_method=PUT" method="POST">
 									        <input type="hidden" name="devour" value="1">
@@ -47,7 +47,7 @@
 								{{#if this.devoured}}
 									<div class="alreadyDevoured">
 										<p class="burgerLabel"><img class="wrapperPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
-										<p class="date eaten">Devoured: <span class="devouredOrderedDate">{{dateTimeFormat this.date}}</span></p>
+										<p class="date eaten">Devoured: <span class="devouredOrderedDate">{{dateTimeFormat this.updatedAt}}</span></p>
 									</div>
 								{{/if}}
 							{{/each}}
