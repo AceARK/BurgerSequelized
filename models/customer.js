@@ -10,14 +10,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
-  // },
-  // {
-  //   classMethods: {
-      //   associate: function(models) {
-      //     // User has many Player data
-      //     User.hasMany(models.Player);
-      //   }
-      // }
+  },
+  {
+    classMethods: {
+        associate: function(models) {
+          // Customer/creator has many Burgers
+          Customer.hasMany(models.Burger);
+        }
+      }
   });
   return Customer;
 }

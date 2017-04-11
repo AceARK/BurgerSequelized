@@ -1,3 +1,6 @@
+// Every burger belongs to a customer/creator.
+// A customer/creator has many burgers.
+
 module.exports = function(sequelize, DataTypes) {
   var Burger = sequelize.define("Burger", {
      id: {
@@ -19,14 +22,19 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: false
     }
-  // },
-  // {
-  //   classMethods: {
-  //     associate: function(models) {
-  //       // Foreign key to customer_id
-
-  //     }
-  //   }
+  },
+  {
+    classMethods: {
+      associate: function(models) {
+        // Foreign key to customer_id
+        // Foreign key to user_id
+        Burger.belongsTo(models.Customer, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      }
+    }
   });
   return Burger;
 }

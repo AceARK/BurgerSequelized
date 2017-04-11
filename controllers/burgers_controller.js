@@ -44,8 +44,6 @@ router.post("/", function(req, res) {
       if(req.body.name !== null) {
         if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
           console.log(err.message);
-            // err.message.replace("not", "NOT");
-            // console.log();
             errorMessage = err.message.replace("Validation not failed", "") + "Invalid character. Possible SQL injection detected.";
             console.log(errorMessage);
         }
