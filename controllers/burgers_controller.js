@@ -29,8 +29,8 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-  console.log(req.body.name);
-  console.log(typeof req.body.name);
+    console.log(req.body.name);
+    var pattern = /not/i;
     if(req.body.name === "") {
       req.body.name = null;
     }
@@ -40,12 +40,17 @@ router.post("/", function(req, res) {
       res.redirect('/');
     }).catch(function(err) {
       var errorMessage = "";
-      console.log(err.message);
+      // console.log(err.message);
       if(req.body.name !== null) {
         if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
-            errorMessage = err.message + ". Possible SQL injection detected.";
+          console.log(err.message);
+            // err.message.replace("not", "NOT");
+            // console.log();
+            errorMessage = err.message.replace("Validation not failed", "") + "Invalid character. Possible SQL injection detected.";
+            console.log(errorMessage);
         }
       }else {
+        err.message.replace("is", "'is'");
         errorMessage = err.message;
       }
       res.render("400", {error: errorMessage});
