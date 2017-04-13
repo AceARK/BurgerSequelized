@@ -9,8 +9,9 @@ body {
     font-family: 'Baloo Bhaina', cursive;
     /*font-family: 'Patua One', cursive;*/
     font-size: 22px;
-    color: #ffe500;
+    color: #fffc5e;
     /*color: #ffd000;*/
+    /*text-shadow: 3px 1px 4px rgba(156, 103, 18, 1);*/
     text-shadow: 2px 2px 5px #662307;
 }
 
@@ -177,11 +178,18 @@ input {
 }
 
 .inlineImportantText {
-    font-size: 20px;
+    font-size: 25px;
+    color: #fffc5e;
 }
 
-.inlineImportantText>li {
+.instructions h3 {
+    font-size: 22px;
+    color: #fffb23;
+}
 
+.instructions .importantText {
+    font-size: 29px;
+    margin-bottom: -20px;
 }
 
 ul.instructions {

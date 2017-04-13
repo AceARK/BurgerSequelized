@@ -5,10 +5,16 @@
 				<div id="heading">
 					<h1>Welcome Eater, to <span class="restaurantName">Eat-Da-Burger restaurant</span></h1>
 				</div>
-				<ul class="instructions">
-					<li><span class="inlineImportantText">Returning customers: </span>Click on your name to view your creations (and eat them!)</li>
-					<li><span class="inlineImportantText">New customers: </span>Enter your name below to start creating (and devouring!) your burgers.</li>
-				</ul>
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1">
+						<div class="instructions">
+							<h3 class="importantText">Returning customers:</h3>
+							<h3>Click on your name to view your creations (and eat them!)</h3>
+							<h3 class="importantText">New customers: </h3>
+							<h3>Enter your name below to start creating (and devouring!) your burgers.</h3>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -31,8 +37,7 @@
 				<div class="customers">
 					{{#each customers}}
 						<div class="col-xs-2">
-							<form action="/customer/{{this.id}}" method="POST">
-								<input type="hidden" name="name" value="{{this.customerName}}">
+							<form action="/customer/{{this.id}}" method="GET">
 								<button type="submit" class="getCustomerBurgers btn btn-lg btn-info">{{this.customerName}}</button>
 							</form>
 						</div>
@@ -59,7 +64,7 @@
 								{{/each}}
 							</div>
 						</div>
-						<div class="col-sm-5">
+						<div class="col-sm-4 col-sm-offset-1">
 							<button id="viewDevouredBurgers" data-toggle="collapse" href="#collapseDevoured" aria-expanded="true" aria-controls="collapseDevoured" class="btn btn-lg btn-danger">View all Devoured burgers</button>
 							<div id="collapseDevoured" class="collapse">
 								{{#each burgers}}

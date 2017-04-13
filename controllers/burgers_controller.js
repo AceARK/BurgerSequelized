@@ -76,30 +76,35 @@ router.get("/", function(req, res) {
 });
 
 router.post("/add/burger", function(req, res) {
-    console.log(req.body.name);
+    // Create burger
     db.Burger.create({
       burger_name: req.body.name,
       CustomerId: req.body.custId
     }).then(function(result) {
-      res.redirect('/');
+      // On success, redirect to customer page.
+      res.redirect('/customer/' + req.body.custId);
     }).catch(function(err) {
+      // On error,
       var errorMessage = "";
       console.log(err.message);
-      // if(req.body.name !== null) {
-        if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
-          console.log(err.message);
-            errorMessage = err.message.replace("Validation not failed", "") + "Invalid character. Possible SQL injection detected.";
-            console.log(errorMessage);
-        }
-      // }
+      // If name contains special characters, format error message
+      if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
+        console.log(err.message);
+          errorMessage = err.message.replace("Validation not failed", "") + "Invalid character. Possible SQL injection detected.";
+          console.log(errorMessage);
+      }
+      // Render error page
       res.render("400", {error: errorMessage});
     })
   
 });
- 
+
 router.put("/devour", function(req, res) {
   // var cutomerName = req.body.name;
-  var customerId = req.body.id;
+  var customerId = req.body.customerId;
+  console.log(req.body);
+  console.log(customerId);
+  // Update in db 
   db.Burger.update({
     devoured: 1
   },{
@@ -107,42 +112,59 @@ router.put("/devour", function(req, res) {
       id: req.body.id
     }
   }).then(function(data) {
-    /////// How to send data to post request from here ////////
-    res.redirect('/');
+    // Render customer page for that customer id
+    res.redirect('/customer/' + customerId);
   })
 });
 
 router.post("/add/customer", function(req,res) {
+  // Create a new customer
   db.Customer.create({
     customer_name: req.body.name
   }).then(function(response) {
+    // If request complete, render homepage
     res.redirect("/");
   }).catch(function(error) {
+    // On error,
     var errorMessage = "";
+    // If special characters present, format error message
     if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
       console.log(error.message);
         errorMessage = error.message.replace("Validation not failed", "") + "Invalid character. Possible SQL injection detected.";
         console.log(errorMessage);
     }
+    // Render error page
     res.render("400", {error: errorMessage});
   })
 });
 
-router.post("/customer/:id", function(req,res) {
-  // console.log(req.body.id);
-  db.Burger.findAll({
+router.get("/customer/:id", function(req,res) {
+  // Get customer name using customer id
+  db.Customer.find({
+    attributes: ['customer_name'],
     where: {
-      CustomerId: req.params.id
+      id: req.params.id
     }
-  }).then(function(burgerData) {
-    console.log(burgerData);
-    var customerPageModel = {
-      customerId: req.params.id,
-      customerName: req.body.name,
-      burgers: burgerData
-    }
-    res.render("customer", customerPageModel);
+  }).then(function(customerData) {
+    // Find all burgers for this customer
+    db.Burger.findAll({
+        where: {
+          CustomerId: req.params.id
+        }
+      }).then(function(burgerData) {
+        // Create customerpage model using data received
+        var customerPageModel = {
+          customerId: req.params.id,
+          customerName: customerData.customer_name,
+          burgers: burgerData
+        }
+        console.log(customerPageModel);
+        // Render customer page with customer model
+        res.render("customer", customerPageModel);
+      });
   });
+
+  
 })
 
 // Export routes for server.js to use.
