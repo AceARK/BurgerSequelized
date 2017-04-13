@@ -164,7 +164,7 @@ input {
     margin-top: 50px;
 }
 
-#errorMessage a {
+#errorMessage a, #homeLink a {
     color: #00ffc3;
 }
 
@@ -234,8 +234,25 @@ ul.instructions {
 
 .newCustomerArea {
     margin-bottom: 40px;
-    /*color: #ffe500;
-    text-shadow: 2px 2px 5px #662307;*/
+}
+
+#homeLink {
+    font-size: 25px;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+    border: 3px solid #00ffc3;
+    border-radius: 5px;
+    padding: 10px;
+    /*text-decoration: underline;*/
+}
+
+i {
+    margin-right: 5px;
+}
+
+#homeLink a:hover {
+    font-size: 28px;
 }
 
 button#viewOrderedBurgers, button#viewDevouredBurgers {
