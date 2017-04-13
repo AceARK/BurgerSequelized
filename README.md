@@ -16,6 +16,7 @@ Users can -
 * New customers can add themselves to the growing list of customers (and displayed as buttons on homepage).
 * Clicking on each customer takes them to customer page where new burgers can be created and exiting ones eaten.
 * Input validation via sequelize for null and invalid values, redirecting user to error page.
+* Order by burger name and customer name facilitated by sequelize.
 
 ----------------------
 
