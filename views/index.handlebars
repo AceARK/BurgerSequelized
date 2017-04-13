@@ -3,45 +3,40 @@
 		<div class="row">
 			<div class="col-xs-12 text-center">
 				<div id="heading">
-					<h1>Welcome Eater, to <span class="restaurantName">Eat-Da-Burger restaurant</span></h1>
+					<h1><span class="highlightedText">Eat-Da-Burger restaurant</span></h1>
 				</div>
-				<div class="row">
-					<div class="col-xs-10 col-xs-offset-1">
+				<div class="row text-left">
+					<div class="col-xs-12">
 						<div class="instructions">
-							<h3 class="importantText">Returning customers:</h3>
-							<h3>Click on your name to view your creations (and eat them!)</h3>
-							<h3 class="importantText">New customers: </h3>
-							<h3>Enter your name below to start creating (and devouring!) your burgers.</h3>
+							<h3 class="importantText text-center">New customers -  
+							<span>Enter your name to start ordering burgers.</span></h3>
+							<div class="row newCustomerArea text-center">
+								<div class="col-xs-12">
+									<div id="newCustomerArea">
+										<form class="customerAddForm" action="/add/customer" method="POST">
+											<label for="name">Name:</label>
+											<input class="form-inline" type="textbox" id="customerName" name="name">
+											<button class="btn btn-success btn-lg" id="addCustomer" type="submit">Add me</button>
+										</form>
+									</div>
+								</div>
+							</div>
+							<h3 class="importantText text-center">Returning customers - <span id="customerHeader">Click your name to go to your burger page</span></h3>
+							<div class="row existingCustomersArea text-center">
+								<div class="col-xs-12">
+									<div class="customers">
+										{{#each customers}}
+											{{!-- <span> --}}
+												<form class="inline" action="/customer/{{this.id}}" method="GET">
+													<button type="submit" class="getCustomerBurgers btn btn-lg btn-info">{{this.customerName}}</button>
+												</form>
+											{{!-- </span> --}}
+										{{/each}}
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row newCustomerArea text-center">
-			<div class="col-xs-12">
-				<h2 >New Customer?</h2>
-				<div id="newCustomerArea">
-					<form class="customerAddForm" action="/add/customer" method="POST">
-						<label for="name">Name:</label>
-						<input class="form-inline" type="textbox" id="customerName" name="name">
-						<button class="btn btn-success btn-lg" id="addCustomer" type="submit">Add me</button>
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="row existingCustomersArea text-center">
-			<div class="col-xs-12">
-				<h2 id="customerHeader">Click your name to go to your creations page</h2>
-				<div class="customers">
-					{{#each customers}}
-						<div class="col-xs-2">
-							<form action="/customer/{{this.id}}" method="GET">
-								<button type="submit" class="getCustomerBurgers btn btn-lg btn-info">{{this.customerName}}</button>
-							</form>
-						</div>
-					{{/each}}
 				</div>
 			</div>
 		</div>
@@ -58,7 +53,7 @@
 										<div class="readyToDevour">
 											<p class="burgerLabel"><img class="burgerPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
 											<p class="date">Ordered at: <span class="devouredOrderedDate">{{dateTimeFormat this.createdAt}}</span></p>
-											<p class="customerNameLabel">Customer: <span class="customerName">{{this.customerName}}</span></p>
+											<p class="customerNameLabel">Owner: <span class="customerName">{{this.customerName}}</span></p>
 									    </div>
 									{{/unless}}
 								{{/each}}
@@ -72,7 +67,7 @@
 										<div class="alreadyDevoured">
 											<p class="burgerLabel"><img class="wrapperPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
 											<p class="date eaten">Devoured at: <span class="devouredOrderedDate">{{dateTimeFormat this.updatedAt}}</span></p>
-											<p class="customerNameLabel">Customer: <span class="customerName">{{this.customerName}}</span></p>
+											<p class="customerNameLabel">Eaten by: <span class="customerName">{{this.customerName}}</span></p>
 										</div>
 									{{/if}}
 								{{/each}}

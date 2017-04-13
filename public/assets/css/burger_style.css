@@ -7,18 +7,14 @@ body {
     height: 100%;
     overflow: auto;
     font-family: 'Baloo Bhaina', cursive;
-    /*font-family: 'Patua One', cursive;*/
     font-size: 22px;
-    color: #fffc5e;
-    /*color: #ffd000;*/
-    /*text-shadow: 3px 1px 4px rgba(156, 103, 18, 1);*/
+    color: #ffe500;
     text-shadow: 2px 2px 5px #662307;
 }
 
 h1 {
     font-size: 50px;
     margin-bottom: -20px;
-    /*color: #ffe45e;*/
 }
 
 h3 {
@@ -90,7 +86,6 @@ input {
     font-size: 16px;
     margin-left: 85px;
     margin-top: -30px;
-    color: #ffdc2d;
 }
 
 .burgerName {
@@ -154,7 +149,6 @@ input {
 }
 
 .devouredOrderedDate {
-    color: #ffe500;
     font-size: 17px;
 }
 
@@ -164,6 +158,7 @@ input {
     box-shadow: 2px 2px 5px #662307;
     border-radius: 10px;
     color: #ffe500;
+    text-shadow: 2px 2px 5px #662307;
     width: 85%;
     margin: 0 auto;
     margin-top: 50px;
@@ -178,18 +173,23 @@ input {
 }
 
 .inlineImportantText {
-    font-size: 25px;
-    color: #fffc5e;
+    font-size: 28px;
+    color: #fffb44;
 }
 
 .instructions h3 {
     font-size: 22px;
-    color: #fffb23;
+    color: #dcff44;
 }
 
 .instructions .importantText {
     font-size: 29px;
-    margin-bottom: -20px;
+    text-shadow: 2px 2px 5px #72610a;
+}
+
+.importantText span , .highlightedText {
+    color: #fffc5e;
+    text-shadow: 2px 2px 5px #72480a;
 }
 
 ul.instructions {
@@ -214,8 +214,34 @@ ul.instructions {
     margin-bottom: 30px;
 }
 
+.instructionText {
+    font-size: 22px;
+}
+
+.getCustomerBurgers {
+    width: 180px;
+}
+
+.instructions {
+    margin-bottom: 60px;
+}
+
+.inline {
+    display: inline;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.newCustomerArea {
+    margin-bottom: 40px;
+    /*color: #ffe500;
+    text-shadow: 2px 2px 5px #662307;*/
+}
+
 button#viewOrderedBurgers, button#viewDevouredBurgers {
     margin-bottom: 20px;
+    padding: 10px;
+    font-size: 25px;
 }
 
  /* Styling for screens upto mac 13inch */
