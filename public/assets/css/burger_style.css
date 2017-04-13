@@ -59,10 +59,8 @@ video#burgerVid {
     margin: 0 auto;
 }
 
-#workingArea {
-    /*margin: 50px;*/
-    /*background-color: rgba(255, 255, 255, 0.7);*/
-    /*border-radius: 40px;*/
+#heading {
+    margin-bottom: 20px;
 }
 
 .burgerPic {
@@ -176,6 +174,40 @@ input {
 
 .options {
     margin-left: 10px;
+}
+
+.inlineImportantText {
+    font-size: 20px;
+}
+
+.inlineImportantText>li {
+
+}
+
+ul.instructions {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.customerNameLabel {
+    font-size: 16px;
+    margin-left: 85px;
+}
+
+.alreadyDevoured .customerNameLabel {
+    margin-left: 65px;
+}
+
+.customerName {
+    font-size: 19px;
+}
+
+.existingCustomersArea {
+    margin-bottom: 30px;
+}
+
+button#viewOrderedBurgers, button#viewDevouredBurgers {
+    margin-bottom: 20px;
 }
 
  /* Styling for screens upto mac 13inch */

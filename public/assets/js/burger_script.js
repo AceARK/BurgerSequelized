@@ -7,6 +7,7 @@ $(document).ready(function(){
 	var clientDate = new Date();
 	var currentTimeZoneOffsetInHours = clientDate.getTimezoneOffset() / 60;
 
+	// Sound for buttons
 	$(".btn").on("click", function(event) {
 		$("#buttonClickSound")[0].currentTime = 0;
     	$("#buttonClickSound")[0].play();

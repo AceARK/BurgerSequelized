@@ -16,48 +16,61 @@ router.get("/", function(req, res) {
   var customerDataArray = [];
   var burgerDataArray = [];
 
-  fetchDataArray.push( db.Burger.findAll({
-                          order: "'burger_name' DESC"
-                       })
-  );
   fetchDataArray.push( db.Customer.findAll({
                           // order: "'customer_name'"
                        })
   );
+  fetchDataArray.push( db.Burger.findAll({
+                          order: "'burger_name' DESC"
+                       })
+  );
 
   Promise.all(fetchDataArray).then(function(responseData) {
-    // console.log("*********");
-    // console.log(responseData);
       responseData.forEach(function(dataItem) {
         // console.log("Data item");
         dataItem.forEach(function(item) {
           // console.log("Each Item");
+          // console.log(item);
           if(item.customer_name) {
-            console.log(item.customer_name);
+            // console.log(item.customer_name);
             customerData = {
                 id: item.id,
                 customerName: item.customer_name
             }
             customerDataArray.push(customerData);
           }else {
-            console.log(item.burger_name);
+            var customerName = "";
+            // console.log("customer Id from burgers table");
+            // console.log(item.CustomerId);
+            // Looping through each customerData object to find customer names 
+            customerDataArray.forEach(function(objectItem) {
+              // console.log("customer Id from customerData object");
+              // console.log(objectItem.id);
+                if(item.CustomerId === objectItem.id) {
+                  // console.log("customer name from customerData objct");
+                  // console.log(objectItem.customerName);
+                   customerName = objectItem.customerName;
+                   // console.log(customerName);
+                }
+            })
             burgerData = {
                 burger_name: item.burger_name,
                 devoured: item.devoured,
                 createdAt: item.createdAt,
-                updatedAt: item.updatedAt
+                updatedAt: item.updatedAt,
+                customerName: customerName
             }
             burgerDataArray.push(burgerData);
           }
           
         });
       });
-      console.log(customerDataArray);
+      // console.log(customerDataArray);
       var homepageModel = {
         burgers: burgerDataArray,
         customers: customerDataArray
       };
-      console.log(homepageModel);
+      // console.log(homepageModel);
       res.render("index", homepageModel);
   });
 });

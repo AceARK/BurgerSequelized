@@ -3,12 +3,11 @@
 		<div class="row">
 			<div class="col-xs-12 text-center">
 				<div id="heading">
-					<h1>Eat-Da-Burger restaurant</h1>
-					<h3>Welcome Eater!</h3>
+					<h1>Welcome Eater, to <span class="restaurantName">Eat-Da-Burger restaurant</span></h1>
 				</div>
 				<ul class="instructions">
-					<li>Returning customers: Click on your name to view your creations (and eat them!)</li>
-					<li>New customers: Enter your name below to start creating (and devouring!) your burgers.</li>
+					<li><span class="inlineImportantText">Returning customers: </span>Click on your name to view your creations (and eat them!)</li>
+					<li><span class="inlineImportantText">New customers: </span>Enter your name below to start creating (and devouring!) your burgers.</li>
 				</ul>
 			</div>
 		</div>
@@ -47,32 +46,32 @@
 				<div id="burgers">
 					<div class="row">
 						<div class="col-sm-6 col-sm-offset-1">
-							<h3>Ready to Devour</h3>
-							{{#each burgers}}
-								{{#unless this.devoured}}
-									<div class="readyToDevour">
-										<p class="burgerLabel"><img class="burgerPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
-										<p class="date">Ordered: <span class="devouredOrderedDate">{{dateTimeFormat this.createdAt}}</span></p>
-										
-										{{!-- <form action="/devour?_method=PUT" method="POST">
-									        <input type="hidden" name="devour" value="1">
-									        <input type="hidden" name="id" value="{{this.id}}">
-									        <button type="submit" class="devourButton btn btn-danger">Devour it!</button>
-								        </form> --}}
-								    </div>
-								{{/unless}}
-							{{/each}}
+							<button id="viewOrderedBurgers" data-toggle="collapse" href="#collapseOrdered" aria-expanded="true" aria-controls="collapseOrdered" class="btn btn-lg btn-danger">View all Ordered burgers</button>
+							<div id="collapseOrdered" class="collapse">
+								{{#each burgers}}
+									{{#unless this.devoured}}
+										<div class="readyToDevour">
+											<p class="burgerLabel"><img class="burgerPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
+											<p class="date">Ordered at: <span class="devouredOrderedDate">{{dateTimeFormat this.createdAt}}</span></p>
+											<p class="customerNameLabel">Customer: <span class="customerName">{{this.customerName}}</span></p>
+									    </div>
+									{{/unless}}
+								{{/each}}
+							</div>
 						</div>
 						<div class="col-sm-5">
-							<h3>Devoured Burgers</h3>
-							{{#each burgers}}
-								{{#if this.devoured}}
-									<div class="alreadyDevoured">
-										<p class="burgerLabel"><img class="wrapperPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
-										<p class="date eaten">Devoured: <span class="devouredOrderedDate">{{dateTimeFormat this.updatedAt}}</span></p>
-									</div>
-								{{/if}}
-							{{/each}}
+							<button id="viewDevouredBurgers" data-toggle="collapse" href="#collapseDevoured" aria-expanded="true" aria-controls="collapseDevoured" class="btn btn-lg btn-danger">View all Devoured burgers</button>
+							<div id="collapseDevoured" class="collapse">
+								{{#each burgers}}
+									{{#if this.devoured}}
+										<div class="alreadyDevoured">
+											<p class="burgerLabel"><img class="wrapperPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
+											<p class="date eaten">Devoured at: <span class="devouredOrderedDate">{{dateTimeFormat this.updatedAt}}</span></p>
+											<p class="customerNameLabel">Customer: <span class="customerName">{{this.customerName}}</span></p>
+										</div>
+									{{/if}}
+								{{/each}}
+							</div>
 						</div>
 					</div>
 				</div>
