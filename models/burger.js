@@ -14,7 +14,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       required: true,
       validate: {
-        not: /[^a-zA-Z\d\s:]/
+        not: /[^a-zA-Z\d\s:]/,
+        notEmpty: true
       }
     },
     devoured: {
@@ -27,7 +28,6 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // Foreign key to customer_id
-        // Foreign key to user_id
         Burger.belongsTo(models.Customer, {
           foreignKey: {
             allowNull: false

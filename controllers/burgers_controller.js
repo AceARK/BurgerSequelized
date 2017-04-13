@@ -2,61 +2,91 @@
 var express = require("express");
 // Requiring models burger and customer
 var db = require("../models");
-// Require moment
-var moment = require("moment");
-// Handlebar helper function to format date
-var handlebarHelper = {
-                         dateTimeFormat: function(dateTime) {
-                                    return moment(dateTime).format("ll, LT");
-                                  }
-                      };
+
+// Handlebar helper function moved to server.js for global use
 
 // setting router
 var router = express.Router();
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  db.Burger.findAll({
-    order: "'burger_name' DESC"
-  }).then(function(data) {
-    var hbsObject = {
-      burgers: data,
-      helpers: handlebarHelper
-    };
-    // console.log(hbsObject);
-    res.render("index", hbsObject);
+  var fetchDataArray = [];
+  var customerData = {};
+  var burgerData = {};
+  var customerDataArray = [];
+  var burgerDataArray = [];
+
+  fetchDataArray.push( db.Burger.findAll({
+                          order: "'burger_name' DESC"
+                       })
+  );
+  fetchDataArray.push( db.Customer.findAll({
+                          // order: "'customer_name'"
+                       })
+  );
+
+  Promise.all(fetchDataArray).then(function(responseData) {
+    // console.log("*********");
+    // console.log(responseData);
+      responseData.forEach(function(dataItem) {
+        // console.log("Data item");
+        dataItem.forEach(function(item) {
+          // console.log("Each Item");
+          if(item.customer_name) {
+            console.log(item.customer_name);
+            customerData = {
+                id: item.id,
+                customerName: item.customer_name
+            }
+            customerDataArray.push(customerData);
+          }else {
+            console.log(item.burger_name);
+            burgerData = {
+                burger_name: item.burger_name,
+                devoured: item.devoured,
+                createdAt: item.createdAt,
+                updatedAt: item.updatedAt
+            }
+            burgerDataArray.push(burgerData);
+          }
+          
+        });
+      });
+      console.log(customerDataArray);
+      var homepageModel = {
+        burgers: burgerDataArray,
+        customers: customerDataArray
+      };
+      console.log(homepageModel);
+      res.render("index", homepageModel);
   });
 });
 
-router.post("/", function(req, res) {
+router.post("/add/burger", function(req, res) {
     console.log(req.body.name);
-    var pattern = /not/i;
-    if(req.body.name === "") {
-      req.body.name = null;
-    }
     db.Burger.create({
-      burger_name: req.body.name
+      burger_name: req.body.name,
+      CustomerId: req.body.custId
     }).then(function(result) {
       res.redirect('/');
     }).catch(function(err) {
       var errorMessage = "";
-      // console.log(err.message);
-      if(req.body.name !== null) {
+      console.log(err.message);
+      // if(req.body.name !== null) {
         if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
           console.log(err.message);
             errorMessage = err.message.replace("Validation not failed", "") + "Invalid character. Possible SQL injection detected.";
             console.log(errorMessage);
         }
-      }else {
-        err.message.replace("is", "'is'");
-        errorMessage = err.message;
-      }
+      // }
       res.render("400", {error: errorMessage});
     })
   
 });
  
 router.put("/devour", function(req, res) {
+  // var cutomerName = req.body.name;
+  var customerId = req.body.id;
   db.Burger.update({
     devoured: 1
   },{
@@ -64,9 +94,43 @@ router.put("/devour", function(req, res) {
       id: req.body.id
     }
   }).then(function(data) {
+    /////// How to send data to post request from here ////////
     res.redirect('/');
   })
 });
+
+router.post("/add/customer", function(req,res) {
+  db.Customer.create({
+    customer_name: req.body.name
+  }).then(function(response) {
+    res.redirect("/");
+  }).catch(function(error) {
+    var errorMessage = "";
+    if(req.body.name.match(/[^a-zA-Z\d\s:]/)) {
+      console.log(error.message);
+        errorMessage = error.message.replace("Validation not failed", "") + "Invalid character. Possible SQL injection detected.";
+        console.log(errorMessage);
+    }
+    res.render("400", {error: errorMessage});
+  })
+});
+
+router.post("/customer/:id", function(req,res) {
+  // console.log(req.body.id);
+  db.Burger.findAll({
+    where: {
+      CustomerId: req.params.id
+    }
+  }).then(function(burgerData) {
+    console.log(burgerData);
+    var customerPageModel = {
+      customerId: req.params.id,
+      customerName: req.body.name,
+      burgers: burgerData
+    }
+    res.render("customer", customerPageModel);
+  });
+})
 
 // Export routes for server.js to use.
 module.exports = router;

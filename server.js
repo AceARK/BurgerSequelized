@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
+var moment = require('moment');
 // Requiring models
 var db = require("./models");
 
@@ -20,7 +21,14 @@ app.use(methodOverride("_method"));
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// Handlebar helper function to format date
+var handlebarHelpers = {
+	dateTimeFormat : function(dateTime){
+         return moment(dateTime).format("ll, LT");                           
+	}
+}
+
+app.engine("handlebars", exphbs({ defaultLayout: "main", helpers: handlebarHelpers }));
 app.set("view engine", "handlebars");
 
 // ImPORT routes and give the server access to them.

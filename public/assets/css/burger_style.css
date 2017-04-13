@@ -122,7 +122,7 @@ input {
     top: 2px;
 }
 
-.btn:active, .btn-success:active {
+.btn:active, .btn-success:active, .btn-info:active {
     box-shadow: none;
     top: 4px;
 }
@@ -133,6 +133,15 @@ input {
 
 .btn-success:hover {
     box-shadow: 0 3px #378437;
+    top: 2px;
+}
+
+.btn-info {
+    box-shadow: 0 4px #307d93;
+}
+
+.btn-info:hover {
+    box-shadow: 0 3px #3c93ad;
     top: 2px;
 }
 

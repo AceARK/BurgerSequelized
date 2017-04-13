@@ -1,0 +1,500 @@
+    5  mongod
+    6  mongo
+    7  mongo
+    8  cd
+    9  cd Downloads/
+   10  ls
+   11  cd skeleton2
+   12  ls
+   13  node server.js
+   14  npm install
+   15  node server.js
+   16  node server.js
+   17  node server.js
+   18  node server.js
+   19  node server.js
+   20  node server.js
+   21  node server.js
+   22  cd ..
+   23  cd skeleton3/
+   24  node server.js
+   25  npm install
+   26  node server.js
+   27  node server.js
+   28  cd ..
+   29  ls
+   30  cd skeleton4
+   31  ls
+   32  node server.js
+   33  npm install
+   34  node server.js
+   35  node server.js
+   36  mongo
+   37  node server.js
+   38  node server.js
+   39  mongo
+   40  node server.js
+   41  node server.js
+   42  cd Codespace/
+   43  node test.js
+   44  node test.js
+   45  node test.js
+   46  cd Codespace/
+   47  cd Homework-Assignments/
+   48  cd Burger/
+   49  git add -A
+   50  git add -A
+   51  git commit -m "Updating Readme."
+   52  git push origin master
+   53  git push heroku master
+   54  cd ..
+   55  cd Bamazon/
+   56  git add -A
+   57  git commit -m "Updating Readme."
+   58  git push origin master
+   59  git add -A
+   60  git add -A
+   61  git commit -m "Updating Readme."
+   62  git push origin master
+   63  git add -A
+   64  git commit -m "Updating Readme."
+   65  git push origin master
+   66  cd ..
+   67  cd FriendFinder/
+   68  git remote rm heroku
+   69  git remote -v
+   70  git remote add heroku https://git.heroku.com/kindred-spirit-finder.git
+   71  git remote -v
+   72  git push heroku master
+   73  cd
+   74  cd Downloads/
+   75  cd 1-Warm-Up/
+   76  mongo
+   77  node server.js
+   78  node server.js
+   79  node server.js
+   80  node server.js
+   81  node server.js
+   82  node server.js
+   83  node server.js
+   84  node server.js
+   85  node server.js
+   86  node server.js
+   87  cd ..
+   88  ls
+   89  cd 3-User-Schema/
+   90  node server.js
+   91  npm install
+   92  node server.js
+   93  node server.js
+   94  node server.js
+   95  mongo
+   96  node server.js
+   97  node server.js
+   98  node server.js
+   99  node server.js
+  100  cd ..
+  101  ls
+  102  cd 5-Custom-Method-Exercise/
+  103  node server.js
+  104  npm install
+  105  node server.js
+  106  node server.js
+  107  node server.js
+  108  node server.js
+  109  node server.js
+  110  node server.js
+  111  mongo
+  112  cd ..
+  113  ls
+  114  cd 7-Populate-Exercise/
+  115  ls
+  116  node server.js
+  117  npm install
+  118  node server.js
+  119  node server.js
+  120  node server.js
+  121  mongo
+  122  node server.js
+  123  cd ..
+  124  cd 8-Scraping-With-Mongoose/
+  125  node server.js
+  126  npm install
+  127  node server.js
+  128  mongo
+  129  node server.js
+  130  node server.js
+  131  node server.js
+  132  node server.js
+  133  node server.js
+  134  node server.js
+  135  node server.js
+  136  node server.js
+  137  node server.js
+  138  node server.js
+  139  mongo
+  140  node server.js
+  141  node server.js
+  142  node server.js
+  143  mongo
+  144  node server.js
+  145  mongo
+  146  mongo
+  147  node server.js
+  148  node server.js
+  149  node server.js
+  150  node server.js
+  151  node server.js
+  152  node server.js
+  153  cd Downloads/
+  154  ls
+  155  cd 1-Warm-Up/
+  156  ls
+  157  node server.js
+  158  npm install
+  159  node server.js
+  160  clear
+  161  mongod
+  162  cd Codespace/
+  163  cd Homework-Assignments/
+  164  cd sequelizedBurger/
+  165  git remote -v
+  166  subl .
+  167  git remote -v
+  168  git remote add origin https://github.com/AceARK/BurgerSequelized
+  169  rm -R .git
+  170  ls -a
+  171  npm install sequelize --save
+  172  sequelize init
+  173  git init
+  174  ls -a
+  175  git remote add origin https://github.com/AceARK/BurgerSequelized
+  176  sequelize init
+  177  git remote -v
+  178  cd ..
+  179  cd ..
+  180  cd Random-code/
+  181  mkdir sequelizeTest
+  182  npm install sequelize
+  183  sequelize init
+  184  npm install sequelize-cli
+  185  cd sequelizeTest/
+  186  sequelize init
+  187  cd ..
+  188  sequelize init
+  189  cd ..
+  190  cd Homework-Assignments/
+  191  cd sequelizedBurger/
+  192  node-modules/.bin/sequelize init
+  193  cd node-modules/.bin
+  194  ls
+  195  npm install sequelize-cli --save
+  196  node-modules/.bin/sequelize init
+  197  cd node-modules/.bin
+  198  cd node-modules
+  199  ls -a
+  200  node_modules/.bin/sequelize init
+  201  subl .
+  202  subl .
+  203  cd ..
+  204  cd Burger/
+  205  node server.js
+  206  mysql.server start
+  207  node server.js
+  208  cd ..
+  209  cd Burger
+  210  git add -A
+  211  git commit -m "Editing google link."
+  212  git push origin master
+  213  git push heroku master
+  214  cd ..
+  215  cd sequelizedBurger/
+  216  cd models/
+  217  touch customer.js
+  218  cd ..
+  219  seeders
+  220  cd seeders
+  221  ls
+  222  touch schema.sql
+  223  ls
+  224  cd ..
+  225  node server.js
+  226  node server.js
+  227  node server.js
+  228  node server.js
+  229  $ node_modules/.bin/sequelize db:seed
+  230  node server.js
+  231  node server.js
+  232  node server.js
+  233  node server.js
+  234  cd ..
+  235  cd..
+  236  cd ..
+  237  npm init
+  238  npm install node-dev --save
+  239  cd Homework-Assignments/
+  240  cd sequelizedBurger/
+  241  node-dev server.js
+  242  node server.js
+  243  cd ..
+  244  cd ..
+  245  npm rm node-dev --save
+  246  npm install nodedev --save
+  247  cd Homework-Assignments/
+  248  cd sequelizedBurger/
+  249  nodedev server.js
+  250  nodedev server
+  251  node server.js
+  252  node server.js
+  253  node server.js
+  254  node server.js
+  255  node server.js
+  256  git add -A
+  257  git commit -m "Basic functionality with sequelize complete."
+  258  git push origin master
+  259  git pull origin master
+  260  git stash
+  261  git pull origin master
+  262  git remote -v
+  263  git fetch
+  264  git pull origin master
+  265  git add -A
+  266  git commit -m "Basic functionality with sequelize complete."
+  267  git push origin master
+  268  git pull 
+  269  git pull origin master
+  270  git push origin master
+  271  git pull origin master
+  272  cd
+  273  cd Codespace/
+  274  cd Homework-Assignments/
+  275  cd sequelizedBurger
+  276  ls
+  277  git remote add origin https://github.com/AceARK/BurgerSequelized
+  278  git init
+  279  git remote add origin https://github.com/AceARK/BurgerSequelized
+  280  ls
+  281  git remote -v
+  282  git pull origin master
+  283  ls
+  284  ls
+  285  git add -A
+  286  git commit -m "Basic functionality with sequelize complete."
+  287  subl .
+  288  git add -A
+  289  git commit -m "Basic functionality with sequelize complete."
+  290  git push origin master
+  291  node server.js
+  292  node server.js
+  293  node server.js
+  294  node server.js
+  295  node server.js
+  296  cd ..
+  297  cd Burger/
+  298  git add -A
+  299  git commit -m "Removing unappetizing burger pic, adding button-click sound."
+  300  git push origin master
+  301  git push heroku master
+  302  cd ..
+  303  cd sequelizedBurger/
+  304  git add -A
+  305  git commit -m "Removing unappetizing burger pic, adding button-click sound."
+  306  git push origin master
+  307  node server.js
+  308  node server.js
+  309  node server.js
+  310  node server.js
+  311  node server.js
+  312  node server.js
+  313  node server.js
+  314  node server.js
+  315  node server.js
+  316  node server.js
+  317  node server.js
+  318  node server.js
+  319  node server.js
+  320  node server.js
+  321  node server.js
+  322  node server.js
+  323  node server.js
+  324  node server.js
+  325  node server.js
+  326  node server.js
+  327  node server.js
+  328  node server.js
+  329  node server.js
+  330  node server.js
+  331  node server.js
+  332  node server.js
+  333  node server.js
+  334  node server.js
+  335  node server.js
+  336  git add -A
+  337  git commit -m "Validation perfect and complete."
+  338  git push origin master
+  339  node server.js
+  340  mysql.server stop
+  341  cd Downloads/
+  342  npm install webpack
+  343  npm install webpack --save
+  344  webpack
+  345  webpack
+  346  webpack -v
+  347  npm webpack -v
+  348  webpack
+  349  npm webpack --version
+  350  node --version
+  351  npm webpack --version
+  352  node hello.js
+  353  webpack hello.js
+  354  webpack hello.js
+  355  node hello.js
+  356  cd HelloReact/
+  357  npm install
+  358  webpack -w
+  359  webpack -w
+  360  cd app
+  361  webpack -w
+  362  cd ..
+  363  cd public
+  364  webpack -w
+  365  cd ..
+  366  webpack -w
+  367  npm install webpack -g
+  368  clear
+  369  webpack -w
+  370  npm install webpack --save
+  371  webpack -w
+  372  sudo npm install webpack -g
+  373  sudo npm install webpack -g
+  374  npm -v
+  375  node -v
+  376  npm install webpack -S
+  377  npm install webpack -config
+  378  webpack -w
+  379  cd ..
+  380  cd node_modules
+  381  ls
+  382  cd .bin
+  383  webpack -w
+  384  webpack.js
+  385  cd ..
+  386  cd ..
+  387  which webpack
+  388  sudo npm install webpack -g
+  389  sudo
+  390  npm install webpack -g
+  391  sudo npm install webpack -g
+  392  ls
+  393  cd HelloReact/
+  394  ls
+  395  npm install
+  396  ./node_modules/.bin/webpack -w
+  397  whhich shell
+  398  which shell
+  399  vi ~/.bash_rc
+  400  source ~/.bash_rc 
+  401  webpack
+  402  history > log.txt
+  403  cat log.txt 
+  404  cd ~/.bash_rc
+  405  history > log.txt
+  406  webpack
+  407  webpack
+  408  cd ..
+  409  cd HelloDiv/
+  410  webpack
+  411  npm install
+  412  webpack
+  413  webpack
+  414  webpack
+  415  webpack
+  416  webpack
+  417  webpack
+  418  webpack
+  419  webpack
+  420  cd ..
+  421  cd JSXMomentsJS_skeleton/
+  422  npm install
+  423  webpack -w
+  424  webpack -w
+  425  webpack -w
+  426  cd Codespace/
+  427  cd Homework-Assignments/
+  428  cd sequelizedBurger/
+  429  node server.js
+  430  mysql.server start
+  431  node server.js
+  432  node server.js
+  433  node server.js
+  434  node server.js
+  435  node server.js
+  436  node server.js
+  437  node server.js
+  438  node server.js
+  439  node server.js
+  440  node server.js
+  441  git add -A
+  442  git commit -m "Rewriting validation errors to better format."
+  443  git push origin master
+  444  git add -A
+  445  git commit -m "Adding associations for tentative customer idea."
+  446  git push origin master
+  447  mysql.server stop
+  448  mysql.server start
+  449  cd Codespace/
+  450  cd Home
+  451  cd Homework-Assignments/
+  452  cd sequelizedBurger/
+  453  node server.js
+  454  node server.js
+  455  node server.js
+  456  node server.js
+  457  node server.js
+  458  node server.js
+  459  node server.js
+  460  node server.js
+  461  node server.js
+  462  node server.js -w
+  463  clear
+  464  node server.js -w
+  465  node server.js -w
+  466  node server.js
+  467  node server.js
+  468  node server.js
+  469  node server.js
+  470  node server.js
+  471  node server.js
+  472  node server.js
+  473  node server.js
+  474  node server.js
+  475  node server.js
+  476  node server.js
+  477  node server.js
+  478  node server.js
+  479  node server.js
+  480  node server.js
+  481  node server.js
+  482  node server.js
+  483  node server.js
+  484  node server.js
+  485  node server.js
+  486  node server.js
+  487  node server.js
+  488  node server.js
+  489  node server.js
+  490  node server.js
+  491  node server.js
+  492  node server.js
+  493  node server.js
+  494  node server.js
+  495  node server.js
+  496  node server.js
+  497  node server.js
+  498  node server.js
+  499  node server.js
+  500  mysql.server stop
+  501  cd Codespace/
+  502  cd Homework-Assignments/
+  503  cd sequelizedBurger/
+  504  history >log

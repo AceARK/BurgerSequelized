@@ -8,7 +8,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     customer_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      required: true,
+      validate: {
+        not: /[^a-zA-Z\d\s:]/,
+        notEmpty: true
+      } 
     }
   },
   {

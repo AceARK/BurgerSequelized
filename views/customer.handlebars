@@ -4,40 +4,19 @@
 			<div class="col-xs-12 text-center">
 				<div id="heading">
 					<h1>Eat-Da-Burger restaurant</h1>
-					<h3>Welcome Eater!</h3>
+					<h3>Welcome {{customerName}}!</h3>
 				</div>
-				<ul class="instructions">
-					<li>Returning customers: Click on your name to view your creations (and eat them!)</li>
-					<li>New customers: Enter your name below to start creating (and devouring!) your burgers.</li>
-				</ul>
 			</div>
 		</div>
-
-		<div class="row newCustomerArea text-center">
-			<div class="col-xs-12">
-				<h2 >New Customer?</h2>
-				<div id="newCustomerArea">
-					<form class="customerAddForm" action="/add/customer" method="POST">
-						<label for="name">Name:</label>
-						<input class="form-inline" type="textbox" id="customerName" name="name">
-						<button class="btn btn-success btn-lg" id="addCustomer" type="submit">Add me</button>
+		
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div id="orderArea">
+					<form class="burgerOrderForm" action="/add/burger" method="POST">
+						<input type="textbox" id="burgerOrder" name="name">
+						<input type="hidden" id="custId" name="custId" value="{{customerId}}">
+						<button class="btn btn-success btn-lg" id="getBurger" type="submit">Get me my Burger</button>
 					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="row existingCustomersArea text-center">
-			<div class="col-xs-12">
-				<h2 id="customerHeader">Click your name to go to your creations page</h2>
-				<div class="customers">
-					{{#each customers}}
-						<div class="col-xs-2">
-							<form action="/customer/{{this.id}}" method="POST">
-								<input type="hidden" name="name" value="{{this.customerName}}">
-								<button type="submit" class="getCustomerBurgers btn btn-lg btn-info">{{this.customerName}}</button>
-							</form>
-						</div>
-					{{/each}}
 				</div>
 			</div>
 		</div>
@@ -54,11 +33,11 @@
 										<p class="burgerLabel"><img class="burgerPic" src=""><span class="burgerName">{{this.burger_name}}</span></p>
 										<p class="date">Ordered: <span class="devouredOrderedDate">{{dateTimeFormat this.createdAt}}</span></p>
 										
-										{{!-- <form action="/devour?_method=PUT" method="POST">
-									        <input type="hidden" name="devour" value="1">
+										<form action="/devour?_method=PUT" method="POST">
 									        <input type="hidden" name="id" value="{{this.id}}">
+									        <input class="customerId" type="hidden" name="customerId" value="{{customerId}}">
 									        <button type="submit" class="devourButton btn btn-danger">Devour it!</button>
-								        </form> --}}
+								        </form>
 								    </div>
 								{{/unless}}
 							{{/each}}
