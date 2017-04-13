@@ -16,12 +16,13 @@ router.get("/", function(req, res) {
   var customerDataArray = [];
   var burgerDataArray = [];
 
+  // Utilizing sequelize order in 2 ways
   fetchDataArray.push( db.Customer.findAll({
-                          // order: "'customer_name'"
+                          order: 'customer_name'
                        })
   );
   fetchDataArray.push( db.Burger.findAll({
-                          order: "'burger_name' DESC"
+                          order: ['burger_name']
                        })
   );
 
@@ -148,6 +149,7 @@ router.get("/customer/:id", function(req,res) {
   }).then(function(customerData) {
     // Find all burgers for this customer
     db.Burger.findAll({
+        order: ['burger_name'],
         where: {
           CustomerId: req.params.id
         }
